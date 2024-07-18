@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Heart Rate and SpO2 Server</title>
+   <link rel="stylesheet" href="index.css">
+   <style>
+      body {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100vh;
+         margin: 0;
+         background-color: #f0f0f0;
+         font-family: Arial, sans-serif;
+      }
+      .whole-container {
+         text-align: center;
+         background: white;
+         padding: 20px;
+         border-radius: 10px;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      button {
+         background-color: #007bff;
+         color: white;
+         border: none;
+         padding: 10px 20px;
+         font-size: 16px;
+         border-radius: 5px;
+         cursor: pointer;
+         transition: background-color 0.3s ease;
+      }
+      button:disabled {
+         background-color: #6c757d;
+         cursor: not-allowed;
+      }
+      button:not(:disabled):hover {
+         background-color: #0056b3;
+      }
+      table {
+         margin: 20px auto;
+         border-collapse: collapse;
+         width: 80%;
+      }
+      td {
+         padding: 10px;
+         text-align: center;
+      }
+   </style>
+</head>
+
+<body>
+   <div class="whole-container">
+      <button id="connect" type="button">Connect</button>
+      <button id="disconnect" type="button" disabled="disabled">Disconnect</button>
+      <div id="terminal" style="padding: 10px">
+         <div>Incoming message</div>
+      </div>
+      <table border="1" cellpadding="5">
+         <tr>
+            <td><button id="heartButton" type="button" disabled="disabled">Read Heart Rate</button></td>
+            <td style="color:red; font-size:24pt"><span id="heartRate">?</span><span> BPM</span></td>
+            <td><button id="heartNotifyButton" type="button" disabled="disabled">Start notifications</button></td>
+            <td><button id="heartStopButton" type="button" disabled="disabled">Stop notifications</button></td>
+         </tr>
+         <tr>
+            <td><button id="spo2Button" type="button" disabled="disabled">Read Oxygen level</button></td>
+            <td style="color:blue; font-size:24pt"><span id="spo2">?</span><span> %</span></td>
+            <td><button id="spo2NotifyButton" type="button" disabled="disabled">Start notifications</button></td>
+            <td><button id="spo2StopButton" type="button" disabled="disabled">Stop notifications</button></td>
+         </tr>
+      </table>
+   </div>
+   <script src="main.js"></script>
+</body>
+
+</html>
